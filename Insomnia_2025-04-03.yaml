@@ -1,0 +1,120 @@
+type: collection.insomnia.rest/5.0
+name: techchallenge01
+meta:
+  id: wrk_41788248fad14faa84473377d723c793
+  created: 1743685552472
+  modified: 1743685552472
+collection:
+  - url: http://127.0.0.1:5000/producao
+    name: Obtem Produção
+    meta:
+      id: req_8e9f557fd7cd463f9a8d55481072ffae
+      created: 1743685614551
+      modified: 1743685658354
+      isPrivate: false
+      sortKey: -1743685614551
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:5000/processamento
+    name: Obtem Processamento
+    meta:
+      id: req_4b7be0ab748049268fa7856a14166c6f
+      created: 1743685672221
+      modified: 1743685680758
+      isPrivate: false
+      sortKey: -1743685614501
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:5000/comercializacao
+    name: Obtem Comercializacao
+    meta:
+      id: req_0381bf43949340c5a55726df81e97874
+      created: 1743685703873
+      modified: 1743685707669
+      isPrivate: false
+      sortKey: -1743685614451
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:5000/importacao
+    name: Obtem Importacao
+    meta:
+      id: req_3e91696cb38646188ac75a5537dce94e
+      created: 1743685726140
+      modified: 1743685730460
+      isPrivate: false
+      sortKey: -1743685614401
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:5000/exportacao
+    name: Obtem Exportação
+    meta:
+      id: req_dc60ecab6da448719272720b754718f2
+      created: 1743685748514
+      modified: 1743685750608
+      isPrivate: false
+      sortKey: -1743685614351
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_57b2d5a7289f4d0d068ffd728169446faef39bf7
+    created: 1743685552480
+    modified: 1743685552480
+environments:
+  name: Base Environment
+  meta:
+    id: env_57b2d5a7289f4d0d068ffd728169446faef39bf7
+    created: 1743685552477
+    modified: 1743685552477
+    isPrivate: false
