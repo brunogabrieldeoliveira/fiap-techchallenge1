@@ -29,3 +29,98 @@ def obtemDados(url):
 
     # converte os dados em um Dataframe do pandas
     return pd.DataFrame(data[1:], columns=data[0]) # linha é o cabeçalho
+
+def obtemProducao():
+    urls= {
+        "producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02"]
+    }
+
+    # dicionario de dados
+    data= {}
+
+    # itero sobre as urls da aba processamento
+    for aba in urls:       
+        url= urls[aba][0]   # obtenho a url        
+        df= obtemDados(url) # obtenho dos dados da url
+
+        data[aba]= df.to_json(orient='records', indent=4) # guardo dados de todas as abas
+    
+    return data
+
+def obtemProcessamento():
+    urls= {
+        "viniferas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_03"],
+		"americanas_hibridas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_03"],
+		"uvas_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_03"],
+		"sem_classificacao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_03"]
+    }
+
+    # dicionario de dados
+    data= {}
+
+    # itero sobre as urls da aba processamento
+    for aba in urls:       
+        url= urls[aba][0]   # obtenho a url        
+        df= obtemDados(url) # obtenho dos dados da url
+
+        data[aba]= df.to_json(orient='records', indent=4) # guardo dados em formato json de todas as abas
+    
+    return data
+
+def obtemComercializacao():
+    urls= {
+        "producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_04"]
+    }
+
+    # dicionario de dados
+    data= {}
+
+    # itero sobre as urls da aba processamento
+    for aba in urls:       
+        url= urls[aba][0]   # obtenho a url        
+        df= obtemDados(url) # obtenho dos dados da url
+
+        data[aba]= df.to_json(orient='records', indent=4) # guardo dados em formato json de todas as abas
+    
+    return data
+
+def obtemImportacao():
+    urls= {
+		"vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_05"],
+		"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_05"],
+		"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_05"],
+		"uvas_passas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_05"],
+		"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_05&opcao=opt_05"]
+    }
+
+    # dicionario de dados
+    data= {}
+
+    # itero sobre as urls da aba processamento
+    for aba in urls:       
+        url= urls[aba][0]   # obtenho a url        
+        df= obtemDados(url) # obtenho dos dados da url
+
+        data[aba]= df.to_json(orient='records', indent=4) # guardo dados em formato json de todas as abas
+    
+    return data
+
+def obtemExportacao():
+    urls= {
+		"vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_06"],
+		"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_06"],
+		"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_06"],
+		"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_06"]
+    }
+
+    # dicionario de dados
+    data= {}
+
+    # itero sobre as urls da aba processamento
+    for aba in urls:       
+        url= urls[aba][0]   # obtenho a url        
+        df= obtemDados(url) # obtenho dos dados da url
+
+        data[aba]= df.to_json(orient='records', indent=4) # guardo dados em formato json de todas as abas
+    
+    return data

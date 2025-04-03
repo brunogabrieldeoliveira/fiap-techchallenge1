@@ -1,32 +1,32 @@
-from flask import Flask
-from webscraping import obtemDados
+from flask import Flask, jsonify
+from webscraping import obtemDados, obtemProducao, obtemProcessamento, obtemComercializacao, obtemImportacao, obtemExportacao
 
-app = Flask(__name__)
 # flask --app .\app.py run --debug
+app = Flask(__name__)
 
-# producao
+# producao ok
 @app.route("/producao", methods=['GET'])
-def obtemProducao():
-    return obtemDados("http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02").to_json(orient='records', indent=4)
+def producao():
+    return obtemProducao()
 
 # processamento
 @app.route("/processamento", methods=['GET'])
-def obtemProcessamento():
-    return obtemDados("http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02").to_json(orient='records', indent=4)
+def processamento():
+    return obtemProcessamento()
 
-# comercializacao
+# comercializacao ok
 @app.route("/comercializacao", methods=['GET'])
-def obtemComercializacao():
-    return obtemDados("http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02").to_json(orient='records', indent=4)
+def comercializacao():
+    return obtemComercializacao()
 
 # importacao
 @app.route("/importacao", methods=['GET'])
-def obtemImportacao():
-    return obtemDados("http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02").to_json(orient='records', indent=4)
+def importacao():
+    return obtemImportacao()
 
 # exportacao
 @app.route("/exportacao", methods=['GET'])
-def obtemExportacao():
-    return obtemDados("http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02").to_json(orient='records', indent=4)
+def exportacao():
+    return obtemExportacao()
 
 
