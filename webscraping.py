@@ -30,9 +30,10 @@ def obtemDados(url):
     # converte os dados em um Dataframe do pandas
     return pd.DataFrame(data[1:], columns=data[0]) # linha é o cabeçalho
 
-def obtemProducao():
+def obtemProducao(ano):
     urls= {
-        "producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02"]
+        #"producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02"]
+        "producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_02"]
     }
 
     # dicionario de dados
@@ -44,15 +45,20 @@ def obtemProducao():
         df= obtemDados(url) # obtenho dos dados da url
 
         data[aba]= df.to_json(orient='records', indent=4) # guardo dados de todas as abas
-    
+
     return data
 
-def obtemProcessamento():
+def obtemProcessamento(ano):
     urls= {
-        "viniferas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_03"],
-		"americanas_hibridas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_03"],
-		"uvas_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_03"],
-		"sem_classificacao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_03"]
+        #"viniferas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_03"],        
+		#"americanas_hibridas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_03"],
+		#"uvas_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_03"],
+		#"sem_classificacao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_03"]
+        "viniferas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_03&subopcao=subopt_01"],
+        "americanas_hibridas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_03&subopcao=subopt_02"],
+        "uvas_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_03&subopcao=subopt_03"],
+        "sem_classificacao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_03&subopcao=subopt_04"] 
+
     }
 
     # dicionario de dados
@@ -67,9 +73,10 @@ def obtemProcessamento():
     
     return data
 
-def obtemComercializacao():
+def obtemComercializacao(ano):
     urls= {
-        "producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_04"]
+        #"producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_04"]
+        "producao" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_04"]
     }
 
     # dicionario de dados
@@ -84,13 +91,19 @@ def obtemComercializacao():
     
     return data
 
-def obtemImportacao():
+def obtemImportacao(ano):
     urls= {
-		"vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_05"],
-		"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_05"],
-		"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_05"],
-		"uvas_passas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_05"],
-		"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_05&opcao=opt_05"]
+		#"vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_05"],
+		#"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_05"],
+		#"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_05"],
+		#"uvas_passas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_05"],
+		#"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_05&opcao=opt_05"]
+
+        "vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_05&subopcao=subopt_01"],
+		"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_05&subopcao=subopt_02"],
+		"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_05&subopcao=subopt_03"],
+		"uvas_passas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_05&subopcao=subopt_04"],
+		"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_05&subopcao=subopt_05"]
     }
 
     # dicionario de dados
@@ -105,12 +118,17 @@ def obtemImportacao():
     
     return data
 
-def obtemExportacao():
+def obtemExportacao(ano):
     urls= {
-		"vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_06"],
-		"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_06"],
-		"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_06"],
-		"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_06"]
+		#"vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_01&opcao=opt_06"],
+		#"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_02&opcao=opt_06"],
+		#"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_03&opcao=opt_06"],
+		#"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?subopcao=subopt_04&opcao=opt_06"]
+
+        "vinhos_mesa" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_06&subopcao=subopt_01"],
+		"espumantes" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_06&subopcao=subopt_02"],
+		"uvas_frescas" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_06&subopcao=subopt_03"],
+		"suco_uva" : ["http://vitibrasil.cnpuv.embrapa.br/index.php?ano=" + str(ano) + "&opcao=opt_06&subopcao=subopt_04"]
     }
 
     # dicionario de dados

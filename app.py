@@ -18,33 +18,31 @@ cache = Cache(app)
 timeout= 300
 
 # producao ok
-@app.route("/producao", methods=['GET'])
+@app.route("/producao/ano=<ano>", methods=['GET'])
 @cache.cached()
-def producao():
-    return obtemProducao()
+def producao(ano):
+    return obtemProducao(ano)
 
 # processamento
-@app.route("/processamento", methods=['GET'])
+@app.route("/processamento/ano=<ano>", methods=['GET'])
 @cache.cached()
-def processamento():
-    return obtemProcessamento()
+def processamento(ano):
+    return obtemProcessamento(ano)
 
 # comercializacao ok
-@app.route("/comercializacao", methods=['GET'])
+@app.route("/comercializacao/ano=<ano>", methods=['GET'])
 @cache.cached()
-def comercializacao():
-    return obtemComercializacao()
+def comercializacao(ano):
+    return obtemComercializacao(ano)
 
 # importacao
-@app.route("/importacao", methods=['GET'])
+@app.route("/importacao/ano=<ano>", methods=['GET'])
 @cache.cached()
-def importacao():
-    return obtemImportacao()
+def importacao(ano):
+    return obtemImportacao(ano)
 
 # exportacao
-@app.route("/exportacao", methods=['GET'])
+@app.route("/exportacao/ano=<ano>", methods=['GET'])
 @cache.cached()
-def exportacao():
-    return obtemExportacao()
-
-
+def exportacao(ano):
+    return obtemExportacao(ano)
