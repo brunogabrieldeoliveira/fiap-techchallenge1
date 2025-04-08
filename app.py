@@ -14,9 +14,6 @@ app = Flask(__name__)
 app.config.from_mapping(config)
 cache = Cache(app)
 
-# timeout cache
-timeout= 300
-
 # producao ok
 @app.route("/producao/ano=<ano>", methods=['GET'])
 @cache.cached()
